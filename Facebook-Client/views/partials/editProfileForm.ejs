@@ -1,0 +1,58 @@
+<div ng-controller="EditProfileCtrl">
+		<div ng-show="profileUpdated">
+			<h4><strong>Your profile updated successfully</strong></h4>
+		</div>
+		<form ng-hide="profileUpdated">
+			<div class="form-group">
+			    <label>Overview</label>
+			    <textarea class="form-control" rows="5" cols="50" ng-model="aboutUser" placeholder="About Yourself"></textarea>
+			  </div>
+			  <hr/>
+			  <div class="form-group">
+			    <label>Employer</label>
+			    <input type="text" class="form-control" id="employer" ng-model="employerName" placeholder="Company you worked for">
+		  	</div>
+			<hr/>
+			<div class="form-group">
+			    <label>College</label>
+			    <input type="text" class="form-control" id="college" ng-model="collegeName" placeholder="College you studied">
+		  	</div>
+			<hr/>
+		  	<div class="form-group">
+			    <label>Mobile Number</label>
+			    <input type="text" class="form-control" id="mobileNumber" ng-model="mobileNumber" placeholder="Mobile Number">
+		  	</div>
+		  	<hr/>
+		  	<div class="form-group">
+			  	<label>Add a life Event</label>
+			  	<input type="text" class="form-control" id="lifeEvent" ng-model="lifeEvent" placeholder="Enter Single Life Event">		  	
+		  	</div>
+		  	<hr/>
+			<div class="form-group">
+			  	<label>Interests</label>
+			  	<ul>			  	
+			  		<li>
+			  		<label>Music</label>						
+			  		</li>
+			  	<input type="text" class="form-control" id="musicInterests" ng-model="musicName" placeholder="A Music Album Name">
+			  	</ul>
+			  	<div class="vdivider-3"></div>
+			  	<ul>
+			  		<li>
+						<label>Sports</label>
+			  		</li>
+				  	<input type="text" class="form-control" id="sportsInterests" ng-model="sportName" placeholder="One Sport Name">			  		
+			  	</ul>
+				<div class="vdivider-3"></div>
+			  	<ul>
+			  		<li>
+			  			<label>Shows</label>
+			  		</li>
+			  		<input type="text" class="form-control" id="showsInterests" ng-model="showName" placeholder="One Show Name">			  		
+			  	</ul>			  			  	
+				<div class="vdivider-3"></div>
+		  	</div>
+		  	<hr/>
+		   	<button type="submit" class="btn btn-default pull-right" ng-click="updateUserInfo()">Submit</button>
+		</form>
+</div>

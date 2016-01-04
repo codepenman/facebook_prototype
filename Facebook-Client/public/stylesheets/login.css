@@ -1,0 +1,144 @@
+html, .container {
+	min-height:100%;
+	min-width:100%;
+	overflow:auto;	
+}
+
+.header {
+	background-color: #3b5998;
+	height: 95px;
+}
+
+.logo_fullName {
+	position: absolute;
+	top: 25px;
+}
+
+.customFormStyle {
+	position: absolute;
+	color: black;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	top: 20px;
+}
+
+.email-text {
+	color: white;
+}
+
+.password-text {
+	position:absolute;
+	color: white;
+	left:195px;
+}
+
+.signIn-button {
+	width:auto;
+	height: 24px;
+	color:white;
+	background-color:#5186bb;
+	font-weight: bold;
+	broder:none;
+}
+
+.hdivider-2 {
+    width:2px;
+    height:auto;
+    display:inline-block;
+}
+
+.hdivider-5 {
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.vdivider-5 {
+    height:2px;
+    width:auto;
+    display:inline-block;
+}
+
+.vdivider-10 {
+    height:5px;
+    width:auto;
+    display:inline-block;
+}
+
+.signUp-bg {	
+	background:url(/resources/img/login_background.jpg) repeat-x #f7f7f7;
+	position:fixed;
+	width:100%;
+	height:100%;	
+}
+
+.signUp-formTitle,
+.signUp-formSubTitle{
+	font-size:25px;	
+	font-family:"Lucida Grande",Tahoma,Verdana,Arial,sans-serif;
+	font-weight:bold;
+}
+
+.signUp-formSubTitle{
+	font-weight:normal;
+	padding:6px 0 15px 0;
+}
+
+.signUp-formSelect{
+	width:auto;
+	padding:5px;
+}
+
+.signUp-label{
+	font-family:Arial, Helvetica, sans-serif;	
+	font-size:20px;
+	text-align:left;
+}
+
+.signUpButton{
+	width:100px;
+	margin:10px 0 0 2px;
+	padding:3px 4px 3px 4px;
+	color:white;
+	background-color:#589d39;
+	outline:none;
+	border:1px solid #006600;
+	font-weight:bold;
+}
+
+.signUpButton:active{
+	background-color:#006600;
+	padding:4px 3px 2px 5px;
+}
+
+#loading{
+	left:10px;
+	position:relative;
+	top:3px;
+	visibility:hidden;
+}
+
+#signUp-formContainer {
+	position:absolute;
+	top:50px;
+}
+
+.input-container{
+	padding:1px;
+}
+
+.signUp-form input.ng-invalid.ng-touched {
+	border-style:solid;
+	border-color:#ff0000;
+}
+
+.signIn-form input.ng-invalid.ng-touched {
+	border-style:solid;
+	border-color:#ff0000;
+}
+.error {
+	color:red;
+}
+.afterSignUp {
+	color:green;
+}

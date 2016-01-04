@@ -1,0 +1,103 @@
+<!DOCTYPE>
+<html  ng-app="Login">
+  <head>
+  	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Loading default angular libraries from CDN -->	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	
+    <link rel='stylesheet' href="stylesheets/login.css"></link> 
+    <script type="text/javascript" src="js/login.js"></script>          
+  </head>
+  
+  <body>	
+	<div  class="container">
+	<!-- This row is used to display Facebook logo & Sign-In Form-->	
+	<div class="row container-fluid"  ng-controller="SignInCtrl">
+		<header class="row header">		
+			<!-- Logo Creation -->
+			<div class="col-md-1 col-md-offset-3">
+				<img class="logo_fullName" src="resources/img/logo.jpg"></img>		
+			</div>
+				
+			<!-- Sign In Form -->
+			<div class="col-md-5 col-md-offset-3">				
+				<form class="customFormStyle">
+					<div class="row form-inline">
+						<label class="email-text">Email</label>
+						<div class="hdivider-5"></div>
+						<label class="password-text">Password</label>					
+					</div>					
+					<div class="row form-inline signIn-form">
+						<input type="email" ng-model="username" required></input>
+						<div class="hdivider-5"></div>
+						<input type="password" ng-model="password" required></input>
+						<div class="hdivider-2"></div>	
+						<input class="signIn-button" type="submit" value="Log In" ng-click="logIn()"></input>							
+					</div>
+					<p class="error">{{invalidLogInMsg}}</p>
+				</form> <!-- End of Sign In Form -->						
+			</div>					
+		</header> <!-- End of Header -->
+	</div>	
+	
+	<!-- This row is used to display Theme & Sign-Up Form-->
+	<div class="row"  ng-controller="SignUpCtrl">
+		<div class="signUp-bg">
+		<!-- Display Sing Up Form to the right -->
+			<div class="col-md-7 col-md-offset-5">
+				<div id="signUp-formContainer">	
+					<div class="signUp-formTitle">Sign Up</div>
+					<div class="signUp-formSubTitle">It's free and anyone can join</div>	
+						<p class="afterSignUp">{{sucessfullSignUpMsg}}</p>				  						  													  	
+						<p class="error">{{unExpectedError}}</p>									
+						<form  class=animate-hide"" ng-hide="isSignUpSuceess">						
+							  	<div class="form-inline signUp-form">
+								    <input class="form-control input-lg" name="firstName" ng-model="firstName" type="text" placeholder="First Name" required/>
+								    <div class="hdivider-5"></div>
+								    <input class="form-control input-lg" name="lastName" ng-model="lastName" type="text" placeholder="Last Name" required/>							  	
+							  	</div>
+								<div class ="form-inline signUp-form" style="margin-top:10px">
+									<input class="form-control input-lg" name="username" ng-model="username" type="email" placeholder="Email" required/>
+									<p class="error">{{existingUser}}</p>
+								</div>
+							    <div class ="signUp-form" style="margin-top:10px">
+							    	<input class="form-control input-lg" name="password" ng-hide="isSignUpSuceess" ng-model="password" type="password" placeholder="New Password" required/>
+							    </div>
+							  	<div style="margin-top:10px">
+									<label class="signUp-label"><strong>Birthday</strong></label>
+										<div class="form-inline dropdown">
+											<select class="signUp-formSelect"  ng-model="months.curValue" ng-options="month for month in months.values"></select>
+										    <select class="signUp-formSelect"  ng-model="days.curValue" ng-options="day for day in days.allDates"></select>
+											<select class="signUp-formSelect"  ng-model="years.curValue" ng-options="year for year in years.birthRange"></select>
+									    </div>
+							  	</div>
+							  	<div style="margin-top:10px">
+							  		<label class="radio-inline"><input type="radio" ng-model="gender" value="Female" ng-required="!gender">Female</label>
+									<label class="radio-inline"><input type="radio" ng-model="gender" value="Male" ng-required="!gender">Male</label>							  
+							  	</div>
+							  	<div class="vdivider-10"></div>					  	
+							  	<div class="form-inline">
+									<input type="submit" class="signUpButton" value="Sign Up" ng-click="signUp()"/>
+									<img id="loading" src="resources/img/loader.gif" alt="working.." ><img>
+							  	</div>
+						</form>										
+					</div>
+			</div>						
+		</div>
+	</div>	
+	</div>
+  </body>
+</html>

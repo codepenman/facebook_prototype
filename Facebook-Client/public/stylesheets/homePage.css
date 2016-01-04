@@ -1,0 +1,103 @@
+html, body,.container {
+	width:100%;
+	height:100%;
+}
+
+.header {
+	background-color: #3b5998;
+	height: 50px;
+}
+
+.logo {
+	position: absolute;
+	top: 10px;
+}
+
+.background	{
+	background-color: 	#f7f7f7;
+	position:fixed;
+	width:100%;
+	height:100%;
+}
+
+.blue-button	{
+	background-color:#3b5998;
+	width:auto;
+	height:auto;
+	color:white;
+	border:none;
+	outline:none;	
+}
+
+.blue-button:active {
+	background-color:#31497d;
+}
+
+.wrap {
+    word-wrap: break-word;
+}
+
+.dropdown-menu {
+    width: 200px !important;
+    height: 250px !important;
+}
+
+.hdivider-2 {
+    width:2px;
+    height:auto;
+    display:inline-block;
+}
+
+.hdivider-5 {
+    width:5px;
+    height:auto;
+}
+
+.vdivider-3 {
+    height:3px;
+    width:auto;
+    display:inline-block;
+}
+
+.vdivider-10 {
+    height:5px;
+    width:auto;
+    display:inline-block;
+}
+
+.relativePath {	
+}
+
+.friendsList-div {
+	width:200px;
+	overflow:scroll;
+	height: 500px; 
+}
+
+.ngViewElementContainer {
+    padding: 25px;
+    border: 25px;
+    margin: 25px;
+    /*overflow: hidden;*/    
+}
+
+.ngViewElement, .ngViewElementContainer {
+    width:auto; 
+    height:95%;   
+}
+
+/*Remove this styling to check without scroll bar*/
+.ngViewElement {
+	overflow: auto;
+	padding:10px;
+}
+
+.inner-container {
+/*    overflow-x: hidden;*/
+    /*overflow-y: scroll;*/
+}
+
+.inner-container::-webkit-scrollbar {
+    display: none;
+}
+

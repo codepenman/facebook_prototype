@@ -1,0 +1,14 @@
+<div ng-controller="FriendsDisplayCtrl">
+		<form>
+			<div class="form-group">
+			     <label ng-if="friendsAvailable == true"></label>
+			     <label ng-if="friendsAvailable == false">No friends available</label>
+			</div>
+			<div class="form-group">
+				<li ng-repeat="friend in myFriendsList">
+					<p>{{friend.name}}</p>
+				</li>	  		  		 
+			</div>
+			<hr/>					  	
+		</form>
+</div>

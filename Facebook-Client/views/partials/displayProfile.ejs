@@ -1,0 +1,55 @@
+<div ng-controller="DisplayProfileCtrl">
+		<form>
+			<div class="form-group">
+			    <label>Overview</label>
+			    <textarea class="form-control" rows="5" cols="50" disabled>{{aboutUser}}</textarea>
+			    <p ></p>
+			  </div>
+			  <hr/>
+			  <div class="form-group">
+			    <label>Employer</label>
+			    <p class="form-control">{{employerName}}</p>
+		  	</div>
+			<hr/>			  
+			  <div class="form-group">
+			    <label>College</label>
+			    <p class="form-control">{{collegeName}}</p>
+		  	</div>
+			<hr/>
+		  	<div class="form-group">
+			    <label>Mobile Number</label>
+			    <p class="form-control">{{mobileNumber}}</p>
+		  	</div>
+		  	<hr/>
+		  	<div class="form-group">
+			  	<label>Add a life Event</label>
+			    <p class="form-control">{{lifeEvent}}</p>		  	
+		  	</div>
+		  	<hr/>	  	
+			<div class="form-group">
+			  	<label>Interests</label>
+			  	<ul>			  	
+			  		<li>
+			  		<label>In Music</label>						
+			  		</li>
+			  		<p class="form-control">{{musicName}}</p>
+			  	</ul>
+			  	<div class="vdivider-3"></div>
+			  	<ul>
+			  		<li>
+						<label>In Sports</label>
+			  		</li>
+			    		<p class="form-control">{{sportName}}</p>			  		
+			  	</ul>
+				<div class="vdivider-3"></div>
+			  	<ul>
+			  		<li>
+			  			<label>Shows</label>
+			  		</li>
+					    <p class="form-control">{{showName}}</p>			  		
+			  	</ul>			  			  	
+				<div class="vdivider-3"></div>
+		  	</div>
+		  	<hr/>	  		  		 
+		</form>
+</div>

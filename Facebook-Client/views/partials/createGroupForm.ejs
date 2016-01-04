@@ -1,0 +1,18 @@
+<div ng-controller="CreateGroupCtrl">
+		<div ng-show="groupCreated">
+			<h4><strong>Group Created successfully</strong></h4>
+		</div>
+		<form ng-hide="groupCreated">
+			<div class="form-group">
+			    <input type="text" class="form-control" style="width:150px" id="groupName" ng-model = "newGroupName" placeholder="Group Name">
+			  </div>
+			  <hr/>
+			  <div class="form-group">
+				  <label ng-if="friendsAvailable">Select</label>
+				  <li ng-repeat="friend in friends">
+				  	<input type="checkbox" ng-change="addGroupMember({{friend}})" ng-model="friendSelected"></input><div class="hdivider-2"></div>{{friend.name}}
+				  </li>	  		  		 
+			  </div>
+		  	<button type="submit" class="btn btn-default pull-right" ng-click="createGroup()">Create</button>
+		</form>
+</div>

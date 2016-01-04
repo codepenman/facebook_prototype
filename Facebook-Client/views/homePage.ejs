@@ -1,0 +1,154 @@
+<!DOCTYPE>
+<html  ng-app="HomePage">
+  <head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	  	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+
+	<!-- Loading default angular libraries from CDN -->	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
+	
+	<script src="https://code.angularjs.org/1.4.6/angular-route.js"></script>
+	
+    <link rel='stylesheet' href="stylesheets/homePage.css"></link> 
+    
+    <script type="text/javascript" src="js/homePage.js"></script>          
+  </head>
+  
+  <body>	
+	<div class="container">
+	<!-- This row is used to display Facebook logo & Sign-Out Button-->	
+	<div class="row container-fluid">
+		<header class="row header" ng-controller="PageHeaderCtrl">		
+			<!-- Logo Creation -->
+			<div class="col-md-1 col-md-offset-3">
+				<img class="logo" src="resources/img/home_header_logo.jpg"></img>		
+			</div>
+				
+			<div class="col-md-5 col-md-offset-3">
+				<div class="row">
+					<div class="vdivider-10"></div>
+					<div class="vdivider-10"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-1">
+						<button type="button" class="blue-button">Home</button>
+					</div>
+					<div class="col-md-3">
+						<div class="dropdown btn-group">
+							  <button class="blue-button dropdown-toggle" type="button" id="friendRequests" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							    Requests
+							    <span class="badge">{{numberOfFriendRequests}}</span>
+							  </button>
+							  <ul class="dropdown-menu" aria-labelledby="friendsRequests">
+							    <li class="row" ng-repeat="friend in friendReq">
+								    	<div class="row">
+								    	<p class="col-md-6 col-md-offset-1 wrap" style="top:6px">{{friend.name}}</p>
+								    	<div class="btn-group" >
+								    		<button class="btn btn-default btn-sm" type="button" ng-click="acceptFriend(friend)">Accept</button>								    	
+								    	</div>
+										<hr/>							    	
+							    	</div>
+								 </li>
+							  </ul>
+						</div>									
+					</div>
+					<div class="col-md-8" style="text-align:left">
+						<button type="button" class= "blue-button" ng-click="signOut()">SignOut</button>
+					</div>				
+				</div>
+			</div>					
+		</header> <!-- End of Header -->
+	</div>	
+	
+	<div class="row background" ng-controller="PageContentCtrl">
+		<!-- Divide the page vertically into 3 sections:- 
+					1st section to left will be a kind of Navigation Bar(check if there is better option)
+					2nd section in the middle will be ng-view , by default it will load news feed section, can also be view to display user info, edit user info, groups related stuff
+					3rd section to the right will contain element that can display all the friends to whom I can send friend requests
+						I will be using thumbnails with button from bootstrap style's
+				 -->
+		<div class="col-md-8 col-md-offset-2"> <!-- Content Column Container -->
+			<div class="row"> <!-- Row in Content Column Container -->
+				<div class="col-md-2" style="left:100px;">
+					<div	>
+					<ul class="nav nav-pills nav-stacked">
+					  <li role="presentation"><a href="#displayProfile">{{accountUser}}</a></li>
+					  <li role="presentation"><a href="#editProfile">Edit Profile</a></li>
+					  <li role="presentation"><a href="#newsFeed">News Feed</a></li>
+					  <li role="presentation"><a href="#displayMyFriends">Friends</a></li>
+					  <li role="presentation dropdown">
+					  <a href="#" class="dropdown-toggle" type="button" id="groups" data-toggle="dropdown" aria-expanded="true">Group</a>
+							<ul class="dropdown-menu" aria-labelledby="groups">
+								<li class="row">
+									<a href="#createGroup">Create</a>
+								</li>
+								<li class="row">
+									<a href="#deleteGroup">Delete</a>
+								</li>						
+							</ul>		  
+					 </li>
+					 <hr/>
+					 	<li ng-repeat="group in currUserGroups">
+					 		<a href="" ng-click="currentGroup(group.id)" class="dropdown-toggle" type="button" id="groups" data-toggle="dropdown" aria-expanded="true">{{group.name}}
+					 		</a>					 	
+					 		<ul class="dropdown-menu" aria-labelledby="group">
+								<li class="row">
+									<a href="#showMembers" >Show Members</a>
+								</li>
+								<li class="row">
+									<a href="#removeMembers">Delete Members</a>
+								</li>	
+							</ul>										 		
+					 	</li>
+					 </ul>					  			
+					</ul>
+					</div>
+				</div>
+				
+				<!-- View that gets dynamically updated based on the user action, by default it will display News Feed Section -->
+				<div class="col-md-6 col-md-offset-1"  style="background-color:white">
+					<div class="row">
+						<div class="ngViewElementContainer">
+	    					<div class="inner-container">
+	        					<div class="ngViewElement" ng-view>
+								</div>
+							</div>        					
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3" style="position:relative; left:40px" ng-controller="AvailableFriendsCtrl">
+					<div class="row">
+							<div class="row">							
+								<h5 class="col-md-12"><strong>People u may know</strong></h5>						
+							</div>
+							<div class="row friendsList-div"> 	<!-- Friends List Div-->
+								<li ng-repeat="friend in friends">
+				    				<div class="thumbnail" style="height:175px; width:175px">
+<!-- 									<img class="relativePath" src="resources/img/home_header_logo.jpg" style="hieght:75px; width:75px"></img> -->		
+				      					<div class="caption" style="text-align:center">
+				      						<p>{{friend.name}}</p>
+					        				<button  class="btn btn-primary btn-sm" ng-click="sendFriendReq(friend)" role="button">Send Request</button>
+				      					</div>
+				      				</div>								
+								</li>
+							</div> <!-- Friends List Div -->			  							
+					</div>		
+				</div>			
+			</div> <!-- Row in Content Column COntainer -->
+		</div>	<!-- Content Column Container -->			 
+	</div> <!-- Page Content Ctrl -->
+	</div>	
+  </body>
+</html>
